@@ -1,6 +1,8 @@
 module TimeArrays
 
-using Dates
+export TimeTick, TimeArray
+
+export resample, sma
 
 include("TimeStructs.jl")
 using .TimeStructs

@@ -1,5 +1,5 @@
-using .TimeArrays
-using Test
+using TimeArrays
+using Test, Dates
 
 @testset "TimeArrays.jl" begin
 

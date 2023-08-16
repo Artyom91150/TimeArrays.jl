@@ -1,5 +1,7 @@
 module TimeStructs
 
+using Dates
+
 export TimeTick, TimeArray
 
 export resample, sma
