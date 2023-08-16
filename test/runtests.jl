@@ -1,4 +1,4 @@
-using TimeArrays
+using .TimeArrays
 using Test
 
 @testset "TimeArrays.jl" begin
