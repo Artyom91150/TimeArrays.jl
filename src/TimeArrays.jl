@@ -29,7 +29,12 @@ mutable struct TimeTick{DataType, ValType}
 
     import Base: isequal
     function Base.isequal(t1::TimeTick, t2::TimeTick)
-        return t1.Date == t2.Date
+        return isequal(t1.Date, t2.Date) && isequal(t1.Value, t2.Value)
+    end
+
+    import Base: ==
+    function Base.:(==)(t1::TimeTick, t2::TimeTick)
+        return t1.Date == t2.Date && t1.Value == t2.Value
     end
 
     import Base: +
@@ -141,6 +146,16 @@ mutable struct TimeArray{DataType, ValType}
     import Base: /
     function Base.:/(t1::TimeArray, t2::TimeArray)
         return operation(/, t1, t2)
+    end
+
+    import Base: isequal
+    function Base.isequal(t1::TimeArray, t2::TimeArray)
+        return all(isequal.(t1.Dates, t2.Dates))
+    end
+
+    import Base: ==
+    function Base.:(==)(t1::TimeArray, t2::TimeArray)
+        return all(t1.Dates .== t2.Dates)
     end
 end
 
